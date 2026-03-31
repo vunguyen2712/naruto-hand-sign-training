@@ -1,0 +1,338 @@
+:root {
+  font-family: "Avenir Next", "Trebuchet MS", sans-serif;
+  color: #f5f7fb;
+  background:
+    radial-gradient(circle at top, rgba(255, 167, 66, 0.18), transparent 38%),
+    radial-gradient(circle at bottom right, rgba(63, 146, 255, 0.18), transparent 36%),
+    linear-gradient(180deg, #0d1222 0%, #0c1b2f 100%);
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell,
+.landing-shell {
+  min-height: 100vh;
+  padding: 32px;
+}
+
+.landing-shell {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.landing-copy,
+.landing-card,
+.panel,
+.stage-panel {
+  background: rgba(11, 18, 33, 0.74);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  border-radius: 28px;
+  box-shadow: 0 18px 64px rgba(5, 10, 24, 0.42);
+}
+
+.landing-copy {
+  padding: 40px;
+}
+
+.landing-copy h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 0.98;
+  margin: 0 0 20px;
+  max-width: 12ch;
+}
+
+.landing-copy p {
+  max-width: 56ch;
+}
+
+.landing-card,
+.panel {
+  padding: 24px;
+}
+
+.landing-card ul,
+.hint-list {
+  padding-left: 18px;
+}
+
+.hero-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.hero-header h1,
+.panel h2,
+.landing-card h2 {
+  margin: 0 0 10px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.74rem;
+  color: #ffbf74;
+  margin-bottom: 12px;
+}
+
+.muted {
+  color: rgba(232, 237, 247, 0.72);
+}
+
+.mode-toggle {
+  display: inline-flex;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.mode-toggle button,
+.secondary-button,
+.primary-button,
+.jutsu-card {
+  border: none;
+  border-radius: 18px;
+  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.mode-toggle button {
+  color: inherit;
+  background: transparent;
+  padding: 10px 16px;
+}
+
+.mode-toggle button.active,
+.primary-button {
+  background: linear-gradient(135deg, #ff8f43 0%, #ffd56e 100%);
+  color: #1a1322;
+  font-weight: 700;
+}
+
+.primary-button,
+.secondary-button {
+  padding: 12px 18px;
+}
+
+.secondary-button {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.stage-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.72fr);
+  gap: 24px;
+}
+
+.stage-column,
+.sidebar {
+  display: grid;
+  gap: 18px;
+}
+
+.stage-panel {
+  padding: 18px;
+}
+
+.stage-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.toolbar-note {
+  color: rgba(232, 237, 247, 0.72);
+  font-size: 0.92rem;
+}
+
+.camera-stage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(15, 24, 42, 0.86), rgba(15, 24, 42, 0.92)),
+    linear-gradient(135deg, #0f1320, #17233c);
+}
+
+.camera-feed,
+.fx-layer,
+.hand-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.camera-feed {
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.fx-layer,
+.hand-overlay {
+  pointer-events: none;
+}
+
+.hand-overlay {
+  filter: drop-shadow(0 0 14px rgba(96, 244, 255, 0.4));
+  transform: scaleX(-1);
+}
+
+.camera-overlay-card {
+  position: absolute;
+  inset: auto 24px 24px 24px;
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(10, 15, 26, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.status-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.status-chip-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.status-chip {
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.status-chip.active {
+  background: rgba(255, 196, 92, 0.24);
+}
+
+.status-chip.success {
+  background: rgba(92, 224, 155, 0.26);
+}
+
+.status-reason {
+  margin: 0;
+}
+
+.jutsu-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.jutsu-card {
+  text-align: left;
+  padding: 18px;
+  display: grid;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+}
+
+.jutsu-card.selected {
+  box-shadow: 0 0 0 2px rgba(255, 209, 110, 0.74);
+  background: rgba(255, 200, 114, 0.1);
+}
+
+.jutsu-card:disabled {
+  opacity: 0.66;
+  cursor: not-allowed;
+}
+
+.jutsu-card__title {
+  font-weight: 700;
+}
+
+.jutsu-card__status {
+  color: #ffd88b;
+  font-size: 0.88rem;
+}
+
+.toggle-row,
+.slider-grid,
+.debug-breakdown {
+  display: grid;
+  gap: 12px;
+}
+
+.toggle-row {
+  grid-template-columns: 1fr 1fr;
+}
+
+.slider-grid label {
+  display: grid;
+  gap: 6px;
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.metric.pass {
+  background: rgba(92, 224, 155, 0.16);
+}
+
+.error-text {
+  color: #ffb4a2;
+}
+
+@media (max-width: 1080px) {
+  .landing-shell,
+  .stage-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-shell,
+  .landing-shell {
+    padding: 18px;
+  }
+
+  .hero-header {
+    flex-direction: column;
+  }
+
+  .toggle-row {
+    grid-template-columns: 1fr;
+  }
+}
